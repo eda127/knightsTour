@@ -35,35 +35,36 @@ public class Tour {
         else {
             int[][] tempArr = new int[8][8];
             
-            // down 2, right 1
+            // left 2, up 1
             if (moveCheck(-2, 1)) {
-
+                xPos += -2;
+                y
             }
-            // down 1, right 2
+            // left 1, up 2
             else if (moveCheck(-1, 2)) {
 
             }
-            //down 2, left 1
+            // left 2, down 1
             else if (moveCheck(-2, -1)) {
 
             }
-            // down 1, left 2
+            // left 1, down 2
             else if (moveCheck(-1, -2)) {
 
             }
-            // up 2, right 1
+            // right 2, up 1
             else if (moveCheck(2, 1)) {
             
             }
-            // up 1, right 2
+            // right 1, up 2
             else if (moveCheck(1, 2)) {
             
             }
-            // up 2, left 1
+            // right 2, down 1
             else if (moveCheck(2, -1)) {
             
             }
-            // up 1, left 2
+            // right 1, down 2
             else if (moveCheck(1, -2)) {
             
             }
