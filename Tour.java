@@ -1,20 +1,23 @@
 public class Tour {
-    private int moveNum = 0;
+    private int moveNum = 1;
     private int[][] board = new int[8][8];
     private int xPos;
     private int yPos;
 
     public Tour() {
-        int xPos = 0;
-        int yPos = 0;
+        xPos = 0;
+        yPos = 0;
     }
 
     public boolean moveCheck(int changeX, int changeY) {
         int newLocationX = changeX + xPos;
         int newLocationY = changeY + yPos;
 
-        if (((newLocationX > 0) && (newLocationY > 0)) && (board[newLocationX][newLocationY] > 1)) return false;
-        else return true;
+        if ((newLocationX >= 0 && newLocationX < 8) && 
+            (newLocationY >= 0 && newLocationY < 8) && 
+            (board[newLocationX][newLocationY] == 0)) 
+            return true;
+        else return false;
     }
 
     public void printBoard() {
@@ -30,44 +33,46 @@ public class Tour {
         return board;
     }
 
-    public boolaen KnightsTour(int startX, int startY) {
-        if (moveNum == 64) retrun true;
+
+    boolean called = true;
+    int[][] allMoves = {{2, 1}, {1, 2}, {2, -1}, {1, -2}, {-2, 1}, {-1, 2}, {-2, -1}, {-1, -2}};
+    public boolean knightsTour(int startX, int startY) {
+        board[startX][startY] = moveNum;
+        if (moveNum >= 64) return true;
+        
         else {
-            int[][] tempArr = new int[8][8];
-            
-            // left 2, up 1
-            if (moveCheck(-2, 1)) {
-                xPos += -2;
-                y
-            }
-            // left 1, up 2
-            else if (moveCheck(-1, 2)) {
+            for (int[] move : allMoves) {
+                if (moveCheck(move[0], move[1])) {                    
+                    xPos += move[0];
+                    yPos += move[1];
+                    moveNum++;
+                    called = true;
+                    System.out.println("  MOVE VALID! " + move[0] + " " + move[1]);
+                    
+                    if (knightsTour(xPos, yPos)) {
+                        System.out.println("  KNIGHT TOUR CALLED AGAIN!");
+                        return true;
+                    }
 
+                    else {
+                        called = true;
+                        moveNum--;
+                        board[xPos][yPos] = 0;
+                        xPos -= move[0];
+                        yPos -= move[1];
+                        System.out.println("  BACKTRACK!");
+                    }
+                    
+                }
+                if (called) {
+                    this.printBoard();
+                    System.out.println("---------------------");
+                    called = false;
+                }
+                else System.out.println("  Move doesnt work (" + move[0] + ", " + move[1] + ")");
             }
-            // left 2, down 1
-            else if (moveCheck(-2, -1)) {
-
-            }
-            // left 1, down 2
-            else if (moveCheck(-1, -2)) {
-
-            }
-            // right 2, up 1
-            else if (moveCheck(2, 1)) {
+        return false;
             
-            }
-            // right 1, up 2
-            else if (moveCheck(1, 2)) {
-            
-            }
-            // right 2, down 1
-            else if (moveCheck(2, -1)) {
-            
-            }
-            // right 1, down 2
-            else if (moveCheck(1, -2)) {
-            
-            }
-        }
+       }
     }
 }
