@@ -13,15 +13,15 @@ public class Main {
     public static void main (String[] args) {
         Tour tour = new Tour();
         
-        //tour.knightsTour(0, 0);
-        //tour.printBoard();
-        //ChessBoard abc = new ChessBoard();
-        //abc.runGUI();
-
+        
+        tour.printBoard();
+        tour.knightsTour(0, 0);
+        tour.printBoard();
+/* 
         
         
         //made by chatGPT b/c the output is too long in the terminal, so it saves in a file
-        String filePath = "";    //change this line to correct file path
+        String filePath = "C:\\Users\\student\\.vscode\\.vscode\\knightsTour\\output.txt";    //change this line to correct file path
         try (PrintStream fileOut = new PrintStream(new FileOutputStream(filePath))) {
             
             // Redirect System.out to the file
@@ -34,7 +34,7 @@ public class Main {
             System.out.println("Knight's tour output saved to file.");
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
 
