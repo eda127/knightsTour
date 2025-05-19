@@ -37,12 +37,12 @@ public class Tour {
 
     
     int[][] allMoves = {{1, 2}, {2, 1}, {-1, 2}, {1, -2}, {2, -1}, {-2, 1}, {-2, -1}, {-1, -2}};
+    // int[][] allMoves = {{2, -1}, {-2, 1}, {-2, -1}, {-1, -2}, {1, 2}, {2, 1}, {-1, 2}, {1, -2}};
     public boolean knightsTour(int startX, int startY) {
-        
-        if (moveNum >= 63) {
-        board[startX][startY] = 63;
-        return true;
-    }
+        if (moveNum >= 64) {
+            board[startX][startY] = 64;
+            return true;
+        }
         
         else {
             for (int[] move : allMoves) {
@@ -58,19 +58,14 @@ public class Tour {
                     }
 
                     else {
-                        
                         moveNum--;
                         board[xPos][yPos] = 0;
                         xPos -= move[0];
                         yPos -= move[1];
                     }
-                    
                 }
-                
             }
         }
         return false;
-            
-       
     }
 }
