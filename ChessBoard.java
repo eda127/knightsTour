@@ -15,21 +15,19 @@ public class ChessBoard {
         JFrame frame = new JFrame("Chessboard");
         frame.setSize(1000,1000);
 
-        JLabel label = new JLabel("New label");
+        frame.setLayout(new GridLayout(8,8));
 
-        Button button = new Button("a");
-        button.setBounds(100,50,50,50);
+        // JLabel label = new JLabel("New label");
+
+        // Button button = new Button("a");
+        // button.setBounds(100,50,50,50);
         
-        for (int i = 0; i < 8; i++) {
-
+        for (int i = 0; i < 64; i++) {
+            if (i%2 == 0) 
         }
 
         
-        for (int i = 0; i < 8; i++) {
-            if (i%2 == 0) {
-                int location =  i*50;
-            }
-        }
+        
 
         frame.setVisible(true);
     }
